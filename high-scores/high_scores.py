@@ -5,5 +5,12 @@ def personal_best(scores):
     return max(scores)
 
 def personal_top_three(scores):
-    scores.sort(reverse=True) # sort mutates
-    return scores[:3]
+    return personal_top_n(3)(scores)
+
+def personal_top_n(n):
+    return lambda scores: sort(scores)[:n]
+
+def sort(l):
+     l.sort(reverse=True)
+     return l
+    
